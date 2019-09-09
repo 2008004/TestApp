@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.a2008004.testapp.MainActivity"
+    tools:layout_editor_absoluteY="81dp">
+
+    <RelativeLayout
+        android:id="@+id/shopMenu"
+        android:layout_width="411dp"
+        android:layout_height="602dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="@android:color/darker_gray"
+        android:elevation="10dp"
+        android:visibility="invisible"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="1dp">
+
+
+        <Button
+            android:id="@+id/backButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="78dp"
+            android:text="Close Shop" />
+
+        <Button
+            android:id="@+id/upgradeClickPowButon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="112dp"
+            android:layout_toLeftOf="@+id/backButton"
+            android:layout_toStartOf="@+id/backButton"
+            android:text="Upgrade" />
+
+        <TextView
+            android:id="@+id/displayClickPow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/upgradeClickPowButon"
+            android:layout_alignBottom="@+id/upgradeClickPowButon"
+            android:layout_marginLeft="27dp"
+            android:layout_marginStart="27dp"
+            android:layout_toEndOf="@+id/upgradeClickPowButon"
+            android:layout_toRightOf="@+id/upgradeClickPowButon"
+            android:text="Click Power Lv" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/mainLayout"
+        android:layout_width="395dp"
+        android:layout_height="587dp"
+        android:elevation="0dp"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="8dp">
+
+        <ImageView
+            android:id="@+id/settingsButton"
+            android:layout_width="165dp"
+            android:layout_height="73dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/shopButton"
+            android:layout_marginEnd="14dp"
+            android:layout_marginRight="14dp"
+            app:srcCompat="@drawable/settingsbutton" />
+
+        <ImageView
+            android:id="@+id/shopButton"
+            android:layout_width="165dp"
+            android:layout_height="73dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="10dp"
+            app:srcCompat="@drawable/shopbutton"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="1dp" />
+
+        <TextView
+            android:id="@+id/scoreLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/button"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="76dp"
+            app:layout_constraintBottom_toTopOf="@+id/button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/button"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="161dp"
+            android:background="@drawable/circle"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/scoreLabel" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/settingsMenu"
+        android:layout_width="411dp"
+        android:layout_height="603dp"
+        android:background="@android:color/darker_gray"
+        android:elevation="10dp"
+        android:visibility="invisible">
+
+        <Button
+            android:id="@+id/resetButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="200dp"
+            android:text="Reset Progress" />
+
+        <Button
+            android:id="@+id/closeSettingsButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="77dp"
+            android:text="Close Settings" />
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>
