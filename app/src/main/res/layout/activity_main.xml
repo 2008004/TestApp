@@ -140,6 +140,15 @@
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="77dp"
             android:text="Close Settings" />
+
+        <TextView
+            android:id="@+id/powCostLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/resetButton"
+            android:layout_marginBottom="59dp"
+            android:layout_toLeftOf="@+id/resetButton"
+            android:layout_toStartOf="@+id/resetButton" />
     </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>

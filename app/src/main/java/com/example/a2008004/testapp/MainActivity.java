@@ -16,10 +16,11 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
 
-
     private SharedPreferences saveData;
     private String sharedPrefFile = "com.example.a2008004.testapp";
     int score;
+    int clickPow;
+    double b;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,10 +30,12 @@ public class MainActivity extends AppCompatActivity {
         ImageView button = findViewById(R.id.button);
         Button backButton = findViewById(R.id.backButton);
         TextView scoreLabel = findViewById(R.id.scoreLabel);
+        TextView displayClickPow = findViewById(R.id.displayClickPow);
         final ImageView shopButton = findViewById(R.id.shopButton);
         ImageView settingsButton = findViewById(R.id.settingsButton);
         Button closeSettingsButton = findViewById(R.id.closeSettingsButton);
         Button resetButton = findViewById(R.id.resetButton);
+        TextView powCostLabel = findViewById(R.id.powCostLabel);
         resetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -70,28 +73,32 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         saveData = getSharedPreferences(sharedPrefFile, MODE_PRIVATE);
-        try{
-            score = saveData.getInt("scoreKey",0);
+        try {
+            score = saveData.getInt("scoreKey", 0);
+            clickPow = saveData.getInt("clickPow", 0);
+            displayClickPow.setText(Integer.toString(clickPow));
             scoreLabel.setText(Integer.toString(score));
-        }catch (Exception e){
-            Log.e("tag",e.toString());
+        } catch (Exception e) {
+            Log.e("tag", e.toString());
         }
-
+        b = Math.pow(clickPow,4);
+        powCostLabel.setText(Double.toString(b));
     }
 
-    protected void onPause(){
+    protected void onPause() {
         super.onPause();
 
         SharedPreferences.Editor saveEditor = saveData.edit();
-        saveEditor.putInt("scoreKey",score);
-        Log.i("tag","saved");
+        saveEditor.putInt("scoreKey", score);
+        Log.i("tag", "saved");
         saveEditor.apply();
 
     }
-    protected void onStop(){
+
+    protected void onStop() {
         super.onStop();
         SharedPreferences.Editor saveEditor = saveData.edit();
-        saveEditor.putInt("scoreKey",score);
+        saveEditor.putInt("scoreKey", score);
         Log.i("tag", "saved");
         saveEditor.apply();
     }
@@ -106,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void shopMenu(){
+    public void shopMenu() {
         Animation drawerUp = AnimationUtils.loadAnimation(this, R.anim.drawer_up);
         ViewGroup mainPanel = findViewById(R.id.mainLayout);
         ViewGroup shopPanel = findViewById(R.id.shopMenu);
@@ -115,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
         shopPanel.startAnimation(drawerUp);
     }
 
-    public void closeShop(){
+    public void closeShop() {
         Animation drawerDown = AnimationUtils.loadAnimation(this, R.anim.drawer_down);
         ViewGroup mainPanel = findViewById(R.id.mainLayout);
         ViewGroup shopPanel = findViewById(R.id.shopMenu);
@@ -124,7 +131,7 @@ public class MainActivity extends AppCompatActivity {
         shopPanel.startAnimation(drawerDown);
     }
 
-    public void openSettings(){
+    public void openSettings() {
         Animation drawerUp = AnimationUtils.loadAnimation(this, R.anim.drawer_up);
         ViewGroup mainPanel = findViewById(R.id.mainLayout);
         ViewGroup settingsPanel = findViewById(R.id.settingsMenu);
@@ -133,8 +140,8 @@ public class MainActivity extends AppCompatActivity {
         settingsPanel.startAnimation(drawerUp);
     }
 
-    public void closeSettings(){
-        Animation drawerDown = AnimationUtils.loadAnimation(this,R.anim.drawer_down);
+    public void closeSettings() {
+        Animation drawerDown = AnimationUtils.loadAnimation(this, R.anim.drawer_down);
         ViewGroup mainPanel = findViewById(R.id.mainLayout);
         ViewGroup settingsPanel = findViewById(R.id.settingsMenu);
         mainPanel.setVisibility(View.VISIBLE);
@@ -142,7 +149,7 @@ public class MainActivity extends AppCompatActivity {
         settingsPanel.startAnimation(drawerDown);
     }
 
-    public void resetProgress(){
+    public void resetProgress() {
         score = 0;
         TextView scoreLabel = findViewById(R.id.scoreLabel);
         scoreLabel.setText(Integer.toString(score));
@@ -151,4 +158,19 @@ public class MainActivity extends AppCompatActivity {
         saveEditor.clear();
         saveEditor.apply();
     }
+
+    public void upClickPow() {
+
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
