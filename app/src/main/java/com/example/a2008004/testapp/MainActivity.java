@@ -20,7 +20,8 @@ public class MainActivity extends AppCompatActivity {
     private String sharedPrefFile = "com.example.a2008004.testapp";
     int score;
     int clickPow;
-    double b;
+    int powUpCost;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +37,13 @@ public class MainActivity extends AppCompatActivity {
         Button closeSettingsButton = findViewById(R.id.closeSettingsButton);
         Button resetButton = findViewById(R.id.resetButton);
         TextView powCostLabel = findViewById(R.id.powCostLabel);
+        Button upClickPowB = findViewById(R.id.upgradeClickPowButon);
+        upClickPowB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
         resetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -75,14 +83,15 @@ public class MainActivity extends AppCompatActivity {
         saveData = getSharedPreferences(sharedPrefFile, MODE_PRIVATE);
         try {
             score = saveData.getInt("scoreKey", 0);
-            clickPow = saveData.getInt("clickPow", 0);
-            displayClickPow.setText(Integer.toString(clickPow));
+            clickPow = saveData.getInt("clickPow", 1);
+            displayClickPow.setText("Click Power Lv"+Integer.toString(clickPow));
             scoreLabel.setText(Integer.toString(score));
         } catch (Exception e) {
             Log.e("tag", e.toString());
         }
-        b = Math.pow(clickPow,4);
-        powCostLabel.setText(Double.toString(b));
+
+        powUpCost = (int)Math.pow(clickPow,4);
+        powCostLabel.setText(Integer.toString(powUpCost));
     }
 
     protected void onPause() {
@@ -108,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
         ImageView button = findViewById(R.id.button);
         TextView scoreLabel = findViewById(R.id.scoreLabel);
         button.startAnimation(pulse);
-        score++;
+        score += clickPow;
         scoreLabel.setText((Integer.toString(score)));
 
     }
@@ -160,6 +169,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void upClickPow() {
+
+        if (score >= powUpCost){
+            clickPow++;
+            score = score - powUpCost;
+            TextView scoreLabel = findViewById(R.id.scoreLabel);
+            TextView displayClickPow = findViewById(R.id.displayClickPow);
+            TextView powCostLabel = findViewById(R.id.powCostLabel);
+            scoreLabel.setText(Integer.toString(score));
+            displayClickPow.setText("Click Power Lv"+Integer.toString(clickPow));
+            powCostLabel.setText(powUpCost);
+        }
 
     }
 }

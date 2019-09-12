@@ -8,18 +8,66 @@
     tools:layout_editor_absoluteY="81dp">
 
     <RelativeLayout
+        android:id="@+id/settingsMenu"
+        android:layout_width="0dp"
+        android:layout_height="604dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:background="@android:color/darker_gray"
+        android:elevation="10dp"
+        android:visibility="invisible"
+        app:layout_constraintBaseline_toBaselineOf="@+id/shopMenu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/resetButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="200dp"
+            android:text="Reset Progress" />
+
+        <Button
+            android:id="@+id/closeSettingsButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="77dp"
+            android:text="Close Settings" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
         android:id="@+id/shopMenu"
-        android:layout_width="411dp"
-        android:layout_height="602dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:background="@android:color/darker_gray"
         android:elevation="10dp"
         android:visibility="invisible"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="1dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
+
+        <TextView
+            android:id="@+id/powCostLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/upgradeClickPowButon"
+            android:layout_alignStart="@+id/upgradeClickPowButon"
+            android:layout_below="@+id/upgradeClickPowButon"
+            android:layout_marginLeft="17dp"
+            android:layout_marginStart="17dp"
+            android:layout_marginTop="8dp"
+            android:text="cvxvxcv" />
 
         <Button
             android:id="@+id/backButton"
@@ -56,11 +104,13 @@
 
     <RelativeLayout
         android:id="@+id/mainLayout"
-        android:layout_width="395dp"
-        android:layout_height="587dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:elevation="0dp"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/settingsButton"
@@ -113,42 +163,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/scoreLabel" />
 
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/settingsMenu"
-        android:layout_width="411dp"
-        android:layout_height="603dp"
-        android:background="@android:color/darker_gray"
-        android:elevation="10dp"
-        android:visibility="invisible">
-
-        <Button
-            android:id="@+id/resetButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="200dp"
-            android:text="Reset Progress" />
-
-        <Button
-            android:id="@+id/closeSettingsButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="77dp"
-            android:text="Close Settings" />
-
-        <TextView
-            android:id="@+id/powCostLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/resetButton"
-            android:layout_marginBottom="59dp"
-            android:layout_toLeftOf="@+id/resetButton"
-            android:layout_toStartOf="@+id/resetButton" />
     </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>
